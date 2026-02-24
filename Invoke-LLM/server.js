@@ -1,4 +1,5 @@
 import express from "express";
+import { generate } from "./chatBot.js";
 const app = express();
 const port = 3000;
 
@@ -8,14 +9,16 @@ app.get("/", (req, res) => {
   res.send("Welcome to ChatDPT");
 });
 
-app.post("/chat", (req, res) => {
+app.post("/chat", async (req, res) => {
   const { message } = req.body;
 
-  console.log("message", message);
+  const result = await generate(message);
 
-  res.json({ message: "ok" });
+  res.json({ message: result });
 });
 
 app.listen(port, () => {
-  console.log(`Server running on ${port}`);
+  console.log(`Server is running on port: ${port}`);
 });
+
+// next: add server.js to toolcalling so we can talk to LLM
