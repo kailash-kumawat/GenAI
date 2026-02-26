@@ -5,12 +5,18 @@ const askBtn = document.querySelector("#ask");
 input.addEventListener("keyup", handleEnter);
 askBtn.addEventListener("click", handleClick);
 
+const loading = document.createElement("div");
+loading.textContent = "Thinking...";
+loading.className = "my-6 animate-pulse";
+
 // add messages to UI
 async function generate(text) {
+  // user message
   const msg = document.createElement("div");
   msg.className = "my-6 bg-neutral-800 rounded-2xl p-4 max-w-fit ml-auto";
   msg.textContent = text;
   chatContainer.append(msg);
+  chatContainer.appendChild(loading);
   input.value = "";
 
   // call server
@@ -19,6 +25,9 @@ async function generate(text) {
   const assistantMsgElem = document.createElement("div");
   assistantMsgElem.className = "max-w-fit";
   assistantMsgElem.textContent = assistantMessage;
+
+  loading.remove();
+
   chatContainer.append(assistantMsgElem);
 }
 

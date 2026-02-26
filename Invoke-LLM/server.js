@@ -23,5 +23,3 @@ app.post("/chat", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
-
-// next: add server.js to toolcalling so we can talk to LLM
