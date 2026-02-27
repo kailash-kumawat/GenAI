@@ -32,7 +32,14 @@ export async function generate(userMessage, threadId) {
   });
 
   // Continuously calling web search tool.
+  const MAX_TRIES = 10;
+  let count = 0;
   while (true) {
+    if (count > MAX_TRIES) {
+      return "I Could not find the result, Please try again!";
+    }
+    count++;
+
     const completions = await groq.chat.completions.create({
       model: "llama-3.3-70b-versatile",
       temperature: 0,
@@ -68,8 +75,6 @@ export async function generate(userMessage, threadId) {
 
     if (!toolCalls) {
       cache.set(threadId, messages);
-      console.log(cache);
-
       return completions.choices[0].message.content;
     }
 
@@ -106,3 +111,5 @@ async function webSearch({ query }) {
 // llm never call tool it only give suggestion to which available tool we should use.
 // then we call that tool by ourselves.
 // llm only generate the data/response.
+
+// next: prevent infinite looping
