@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ChatDPT</title>
     <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body class="bg-neutral-900 text-white/90 overflow-x-hidden">
     <div class="container mx-auto max-w-3xl pb-44 px-2" id="chat-container">
@@ -22,14 +29,26 @@
             rows="2"
             id="input"
           ></textarea>
-          <div class="flex justify-end items-center">
+          <div class="flex items-center">
+            <button class="text-white px-4 py-4 cursor-pointer" id="uploadDoc">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+
             <button
-              class="bg-white text-black px-4 py-1 rounded-full hover:bg-gray-300 cursor-pointer"
+              class="bg-white text-black px-4 py-1 rounded-full hover:bg-gray-300 cursor-pointer ml-auto"
               id="ask"
             >
               Ask
             </button>
           </div>
+          <!-- <div class="flex items-center">
+            <button
+              class="text-white text-2xl px-4 py-4 cursor-pointer"
+              id="uploadDoc"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div> -->
         </div>
       </div>
     </div>

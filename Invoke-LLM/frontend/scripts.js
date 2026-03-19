@@ -1,6 +1,7 @@
 const input = document.querySelector("#input");
 const chatContainer = document.querySelector("#chat-container");
 const askBtn = document.querySelector("#ask");
+const documentUploadBtn = document.querySelector("#uploadDoc");
 
 const threadId =
   Date.now().toString(36) + Math.random().toString(36).substring(2, 8);
@@ -8,6 +9,7 @@ const threadId =
 
 input.addEventListener("keyup", handleEnter);
 askBtn.addEventListener("click", handleClick);
+documentUploadBtn.addEventListener("click", handleDocument);
 
 const loading = document.createElement("div");
 loading.textContent = "Thinking...";
@@ -39,7 +41,7 @@ async function callServer(inputText) {
   const response = await fetch("http://localhost:3000/chat", {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({threadId: threadId, message: inputText }),
+    body: JSON.stringify({ threadId: threadId, message: inputText }),
   });
 
   if (!response.ok) {
@@ -48,6 +50,10 @@ async function callServer(inputText) {
 
   const result = await response.json();
   return result.message;
+}
+
+async function handleDocument(e) {
+  console.log("Document added!!");
 }
 
 // ask button

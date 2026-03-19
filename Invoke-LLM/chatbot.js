@@ -111,5 +111,3 @@ async function webSearch({ query }) {
 // llm never call tool it only give suggestion to which available tool we should use.
 // then we call that tool by ourselves.
 // llm only generate the data/response.
-
-// next: prevent infinite looping
