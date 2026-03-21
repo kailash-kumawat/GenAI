@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ChatDPT</title>
     <link href="./output.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -15,11 +16,6 @@
   </head>
   <body class="bg-neutral-900 text-white/90 overflow-x-hidden">
     <div class="container mx-auto max-w-3xl pb-44 px-2" id="chat-container">
-      <!-- User meesage -->
-
-      <!-- model response -->
-      <!-- <div class="max-w-fit">Hello, How can i help you?</div> -->
-      <!-- User text field -->
       <div
         class="fixed inset-x-0 bottom-0 flex justify-center items-center bg-neutral-900"
       >
@@ -29,10 +25,16 @@
             rows="2"
             id="input"
           ></textarea>
-          <div class="flex items-center">
+
+          <div class="flex items-center relative" id="btnContainer">
             <button class="text-white px-4 py-4 cursor-pointer" id="uploadDoc">
               <i class="fa-solid fa-plus"></i>
             </button>
+            <div id="menu">
+              <p>Upload File</p>
+              <p>Upload Image</p>
+              <p>Upload Video</p>
+            </div>
 
             <button
               class="bg-white text-black px-4 py-1 rounded-full hover:bg-gray-300 cursor-pointer ml-auto"

@@ -1,0 +1,14 @@
+#menu {
+  display: none;
+  background-color: #1e1e1e;
+  width: 150px;
+  padding: 10px;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 10px;
+  left: -150px;
+}
+
+#menu.show {
+  display: block;
+}

@@ -2,6 +2,7 @@ const input = document.querySelector("#input");
 const chatContainer = document.querySelector("#chat-container");
 const askBtn = document.querySelector("#ask");
 const documentUploadBtn = document.querySelector("#uploadDoc");
+const menu = document.getElementById("menu");
 
 const threadId =
   Date.now().toString(36) + Math.random().toString(36).substring(2, 8);
@@ -52,12 +53,19 @@ async function callServer(inputText) {
   return result.message;
 }
 
-async function handleDocument(e) {
+async function handleDocument() {
   console.log("Document added!!");
+  menu.classList.toggle("show");
 }
 
+document.addEventListener("click", (e) => {
+  if (!documentUploadBtn.contains(e.target) && !menu.contains(e.target)) {
+    menu.classList.remove("show");
+  }
+});
+
 // ask button
-async function handleClick(e) {
+async function handleClick() {
   const text = input?.value;
   if (!text) {
     return;
